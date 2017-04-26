@@ -1,9 +1,15 @@
 @extends('layouts.app')
 @section('content')
 <button class="btn btn-success">Add</button>
-<button class="btn btn-info">Import</button>
+<a href="employee/import" class="btn btn-info">Import</a>
 <button class="btn btn-warning">Export</button>
 <hr>
+@if(Session::has('success'))
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong>{!! Session::get('success') !!}
+  </div>
+@endif
 	<table class="table table-striped table-hover datatables">
         <thead>
             <tr>

@@ -7,16 +7,8 @@
     <title>Go Rewards</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
     {!! Html::style('public/bootstrap/css/bootstrap.min.css') !!}
-    <!-- Font Awesome -->
-    {{-- {!! HTML::style('public/easyui/themes/icon.css') !!} --}}
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    {!! Html::style('public/css/dataTables.bootstrap.min.css') !!}
   </head>
   <body>
     @include('include.navbar')
@@ -25,5 +17,12 @@
     </div>
     {!! Html::script('public/js/jquery.min.js') !!}
     {!! Html::script('public/bootstrap/js/bootstrap.min.js') !!}
+    {!! Html::script('public/js/jquery.dataTables.min.js') !!}
+    {!! Html::script('public/js/dataTables.bootstrap.min.js') !!}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.datatables').DataTable();
+      });
+    </script>
   </body>
 </html>

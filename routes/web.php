@@ -16,3 +16,15 @@
 // });
 
 Route::get('/', 'AdminController@index');
+
+Route::get('admin/employee', 'AdminController@employee');
+Route::get('admin/employee/import', 'AdminController@importFormEmployee');
+Route::post('admin/employee/import', 'AdminController@importEmployee');
+
+Route::get('admin/branch', 'AdminController@branch');
+
+Route::get('admin/award', 'AdminController@award');
+
+Route::get('admin/luckylist', 'AdminController@luckylist');
+
+Route::get('admin/planning', 'AdminController@planning');
