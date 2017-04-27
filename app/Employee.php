@@ -13,11 +13,16 @@ class Employee extends Model
 
 	public static $rules = array(
     	'empid' => 'required|unique:Employee',
+        'rehire_date' => 'required'
     );
 
-    public function luckylist(){
-		return $this->hasMany('App\LuckyList');
+    public function employeelucky(){
+		return $this->hasMany('App\EmployeeLucky');
 	}
+
+    public function branchlucky(){
+        return $this->hasMany('App\BranchLucky');
+    }
 
 	public function branch()
     {

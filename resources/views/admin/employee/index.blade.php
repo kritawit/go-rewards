@@ -10,7 +10,7 @@
     <strong>Warning!</strong>{!! Session::get('success') !!}
   </div>
 @endif
-	<table class="table table-striped table-hover datatables">
+	<table id="datatable"  class="table table-striped table-hover datatables">
         <thead>
             <tr>
                 <th>ID</th>

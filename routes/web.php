@@ -17,9 +17,14 @@
 
 Route::get('/', 'AdminController@index');
 
+Route::get('reward', 'RewardController@index');
+Route::post('reward','RewardController@reward');
+
+
 Route::get('admin/employee', 'AdminController@employee');
 Route::get('admin/employee/import', 'AdminController@importFormEmployee');
 Route::post('admin/employee/import', 'AdminController@importEmployee');
+
 
 Route::get('admin/branch', 'AdminController@branch');
 

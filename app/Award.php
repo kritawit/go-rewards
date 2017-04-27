@@ -17,4 +17,12 @@ class Award extends Model
      public function planning(){
 		return $this->hasMany('App\Planning');
 	}
+
+	public function branchlucky(){
+		return $this->hasMany('App\BranchLucky');
+	}
+
+	public function employeelucky(){
+		return $this->hasMany('App\EmployeeLucky');
+	}
 }

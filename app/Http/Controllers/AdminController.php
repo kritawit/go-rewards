@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -59,8 +58,7 @@ class AdminController extends Controller
 
 		$file = array('excelfile' => Input::file('excelfile'));
 
-		$rules = array('excelfile' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-  		// doing the validation, passing post data, rules and the messages
+		$rules = array('excelfile' => 'required',);
   		$validator = Validator::make($file, $rules);
   		if ($validator->fails()) {
     		return Redirect::to('admin/employee/import')->withInput()->withErrors($validator);
