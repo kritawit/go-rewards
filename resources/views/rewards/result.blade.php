@@ -1,6 +1,23 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="row">
+  <div class="col-lg-6">
+    <a href="{{ url('reward') }}" class="btn btn-default">Back</a>
+  </div>
+  <div class="col-lg-6" align="right">
+    {!! Form::open(array('url'=>'reward/savelucky','method' => 'post','class'=>'form-horizontal','role'=>'form')) !!}
+      {{ csrf_field() }}
+          <input type="hidden" name="award" value="{{$award}}">
+          @foreach($reward as $r)
+            <input type="hidden" name="empid[]" value="{{$r->empid}}"/>
+            <input type="hidden" name="bucode[]" value="{{$r->bucode}}"/>
+          @endforeach
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span> Save</button>
+  {!! Form::close() !!}
+  </div>
+</div>
+<hr>
 	<table id="datatable" class="table table-striped table-hover datatables">
         <thead>
             <tr>
@@ -25,5 +42,4 @@
           @endif
         </tbody>
     </table>
-    
 @stop

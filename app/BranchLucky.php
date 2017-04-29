@@ -25,4 +25,3 @@ class BranchLucky extends Model
     	return $this->hasMany('App\Award');
     }
 }
-}

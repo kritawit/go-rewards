@@ -16,6 +16,7 @@ use Excel;
 use DB;
 
 use App\Employee;
+use App\Branch;
 use Illuminate\Queue\SerializesModels;
 
 
@@ -24,10 +25,6 @@ class AdminController extends Controller
 
 	use SerializesModels;
 
-	public function __construct()
-	{
-		// $this->beforeFilter('csrf',array('on'=>'post'));
-	}
 
 	public function index()
 	{
@@ -45,10 +42,6 @@ class AdminController extends Controller
 		return view('admin.employee.index',['employee' => $employee]);
 	}
 
-	public function formEmployee(){
-
-		return view('admin.employee.add');
-	}
 
 	public function importFormEmployee(){
 		return view('admin.employee.import');
@@ -102,6 +95,29 @@ class AdminController extends Controller
       			return Redirect::to('admin/employee/import');
     		}
   		}
+	}
+
+
+	public function employeeForm(){
+		// printf($id);
+		$employee = array();
+		$branch = Branch::where('active',1)->pluck('bucode', 'branidx');
+		return view('admin.employee.add',compact('branch','employee'));
+	}
+
+	public function editEmployee($id){
+		$employee = array();
+		$branch = Branch::where('active',1)->pluck('bucode', 'branidx');
+		$employee = Employee::where('empidx',$id)->first();
+		return view('admin.employee.add',compact('branch'))->with('employee',$employee);
+	}
+
+	public function addEmployee(){
+
+	}
+
+	public function updateEmployee(){
+
 	}
 
 	public function branch(){

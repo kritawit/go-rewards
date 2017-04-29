@@ -8,13 +8,25 @@
     		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     		<strong>Warning!</strong>
     		<ul>
-                @foreach($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-			</ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+			  </ul>
   		</div>
 	@endif
-    {!! Form::open(array('url'=>'reward','method' => 'post','class'=>'form-horizontal','role'=>'form')) !!}
+@if(Session::has('success'))
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Message : </strong>{!! Session::get('success') !!}
+  </div>
+@endif
+@if(Session::has('error'))
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Message : </strong>{!! Session::get('error') !!}
+  </div>
+@endif
+  {!! Form::open(array('url'=>'reward','method' => 'post','class'=>'form-horizontal','role'=>'form')) !!}
     {{ csrf_field() }}
   	<fieldset>
   	<div class="form-group">
@@ -23,12 +35,6 @@
             {!! Form::select('name', $award, null, ['placeholder' => 'Select Award','class' => 'form-control']) !!}
         </div>
     </div>
-{{--     <div class="form-group">
-    	<label for="name" class="col-md-4 control-label">Monthly</label>
-        <div class="col-lg-6">
-            {!! Form::select('award', $award, null, ['placeholder' => 'Select Award','class' => 'form-control']) !!}
-        </div>
-    </div> --}}
     <div class="form-group">
       <label for="" class="col-md-4"></label>
       <div class="col-md-8">

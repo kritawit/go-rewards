@@ -16,6 +16,11 @@ class Employee extends Model
         'rehire_date' => 'required'
     );
 
+    protected function getDateFormat()
+    {
+        return 'd/m/Y'; // changed to match your format
+    }
+
     public function employeelucky(){
 		return $this->hasMany('App\EmployeeLucky');
 	}

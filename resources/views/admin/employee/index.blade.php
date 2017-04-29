@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<button class="btn btn-success">Add</button>
-<a href="employee/import" class="btn btn-info">Import</a>
-<button class="btn btn-warning">Export</button>
+<a href="{{ url('admin/employee/add') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add</a>
+<a href="{{ url('admin/employee/import') }}" class="btn btn-info"><span class="glyphicon glyphicon-import"></span> Import</a>
 <hr>
 @if(Session::has('success'))
   <div class="alert alert-success alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Warning!</strong>{!! Session::get('success') !!}
+    <strong></strong>{!! Session::get('success') !!}
   </div>
 @endif
 	<table id="datatable"  class="table table-striped table-hover datatables">
@@ -29,7 +28,7 @@
               <td>{{$e->empid}}</td>
               <td>{{$e->title}}</td>
               <td>{{$e->firstname}} {{$e->lastname}}</td>
-              <td><a href="#">Edit</a></td>
+              <td><a href="{{ url('admin/employee/edit',[$e->empidx]) }}" class="btn btn-info">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
